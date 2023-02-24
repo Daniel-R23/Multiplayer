@@ -23,4 +23,33 @@
 <body>
     <canvas id="screen" width="10px" height="10px"></canvas>
 </body>
+
+<script>
+    const screen = document.getElementById("screen")
+    const context = screen.getContext('2d')
+    
+    const game = {
+        players:{
+            player1: {x:0, y:0}
+        },
+        fruits:{
+            fruit1: {x:5, y:3}
+        }
+    }
+    
+    for(const playerId in game.players){
+        context.fillStyle = "black"
+        const player = game.players[playerId]
+        context.fillRect(player.x,player.y,1,1)
+    }
+    
+    for(const fruitId in game.fruits){
+        const fruit = game.fruits[fruitId]
+        context.fillStyle = "red"
+        context.fillRect(fruit.x,fruit.y,1,1)
+    }
+
+
+
+</script>
 </html>
