@@ -36,20 +36,26 @@
             fruit1: {x:5, y:3}
         }
     }
-    
-    for(const playerId in game.players){
+
+    function renderScreen(){
+        context.clearRect(0, 0, screen.width, screen.width)
+
+        for(const playerId in game.players){
         context.fillStyle = "black"
         const player = game.players[playerId]
         context.fillRect(player.x,player.y,1,1)
-    }
-    
-    for(const fruitId in game.fruits){
-        const fruit = game.fruits[fruitId]
-        context.fillStyle = "red"
-        context.fillRect(fruit.x,fruit.y,1,1)
+        }
+        
+        for(const fruitId in game.fruits){
+            const fruit = game.fruits[fruitId]
+            context.fillStyle = "red"
+            context.fillRect(fruit.x,fruit.y,1,1)
+        }
+
+        requestAnimationFrame(renderScreen)
     }
 
-
+    renderScreen()
 
 </script>
 </html>
